@@ -1,4 +1,5 @@
 const Pokemon = require('../models/pokemonModel')
+const mongoose = require('mongoose')
 
 const getAllPokemons = async (req, res) => {
   try {
@@ -27,9 +28,13 @@ const getPokemonById = async (req, res) => {
   const id = req.params.id
 
   try {
+    if(!mongoose.Types.ObjectId.isValid(id)){
+      return res.status(400).json({ error: 'Invalid ObjectId' });
+    }
+
     const pokemon = await Pokemon.findById(id)
     if (pokemon) {
-      res.json(pokemon)
+      res.status(200).json(pokemon)
     }
     else {
       res.status(404).json({error: 'Pokemon not found'})
@@ -47,7 +52,7 @@ const updatePokemon = async (req, res) => {
   try {
     const pokemon = await Pokemon.findByIdAndUpdate(id, updatedPokemon, {new: true})
     if (pokemon) {
-      res.json(pokemon)
+      res.status(200).json(pokemon)
     }
     else {
       res.status(404).json({error: 'Pokemon not found'})
@@ -64,7 +69,7 @@ const deletePokemon = async (req, res) => {
   try {
     const pokemon = await Pokemon.findByIdAndDelete(id)
     if (pokemon) {
-      res.json(pokemon)
+      res.status(200).json(pokemon)
     }
     else {
       res.status(404).json({error: 'Pokemon not found'})
