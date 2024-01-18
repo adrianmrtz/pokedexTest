@@ -1,0 +1,3 @@
+staticSites:
+  - name: "test-pokedex-adrianmrtz"
+    dir: "build"
