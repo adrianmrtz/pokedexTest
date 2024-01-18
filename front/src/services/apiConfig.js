@@ -1,1 +1,1 @@
-export const baseRoute = "http://localhost:3000"
+export const baseRoute = "https://pokedex-test-api.onrender.com"
