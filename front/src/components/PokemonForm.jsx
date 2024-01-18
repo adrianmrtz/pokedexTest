@@ -40,6 +40,11 @@ export function PokemonForm({allPokemons, setAllPokemons}) {
           return [...prevState, response.data]
         })
 
+        setHasSecondaryType(false)
+        data.name.value = ""
+        data.type1.value = "normal"
+        
+
         toast("Pokémon agregado correctamente.")
       }
     }).catch(error => {

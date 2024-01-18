@@ -45,7 +45,7 @@ export function AllPokemons({allPokemons, setAllPokemons}) {
           <h3>Pokémon guardados</h3>
         {
           allPokemons.map(pokemon => (
-            <div className="col-md-3 col-6 col-lg-3 col-sm-6 my-2 g-3" key={pokemon._id} id={`a${pokemon._id}`}>
+            <div className="col-md-3 col-6 col-lg-3 col-sm-6 my-auto p-2" key={pokemon._id} id={`a${pokemon._id}`}>
                 <div className="card card-body border-secondary">
                   <h4>{ pokemon.name }</h4>
                   

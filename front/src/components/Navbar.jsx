@@ -12,6 +12,10 @@ export function Navbar(){
         <li className="nav-item">
           <a className="nav-link" href="/crud">CRUD</a>
         </li>
+
+        <li className="nav-item">
+          <a className="nav-link" href="/pokedex">Pokédex</a>
+        </li>
         
       </ul>
     </div>
