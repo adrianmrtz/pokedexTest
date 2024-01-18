@@ -1,7 +1,7 @@
 import { Crud } from "./components/Crud"
 import { Navbar } from "./components/Navbar"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
-import { EditPokemon } from "./components/editPokemon"
+import { EditPokemon } from "./components/EditPokemon"
 import './app.css'
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
