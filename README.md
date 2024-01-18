@@ -6,8 +6,8 @@
 
 ## Enlaces
 
-- **Página:** [Pokedex FullStack Test](https://test-pokedex-adrianmrtz.onrender.com/crud)
-- **API:** [Pokedex API](https://pokedex-test-api.onrender.com/)
+- **Página:** https://test-pokedex-adrianmrtz.onrender.com/crud
+- **API:** https://pokedex-test-api.onrender.com/
 
 *Nota: El servicio de la API puede estar algo lento debido a la capacidad del servidor gratuito en el que está hosteado, esto también se puede ver reflejado en la página.*
 
