@@ -4,9 +4,12 @@ const cors = require('cors')
 const crudRoutes = require('./routes/crudRoutes')
 const pokedexRoutes = require('./routes/pokedexRoutes')
 const connectDataBase = require('./config/database')
+const job = require('./cron')
 
 const app = express()
 const port = 3000
+
+job.start()
 
 app.use(bodyParser.json())
 
