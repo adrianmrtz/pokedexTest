@@ -10,10 +10,12 @@ export function Pokedex() {
   const [page, setPage] = useState(1)
   const [search, setSearch] = useState(null)
   const limit = 8
-  const prevPageRef = useRef(page);
+  const prevPageRef = useRef(0);
+  const isLoading = useRef(false);
 
   const getPokemonsPageInfo = () => {
-    if ((prevPageRef.current !== page || page === 1) && !limitReached) {
+    if ((prevPageRef.current !== page) && !limitReached) {
+      isLoading.current = true
       getPokemonPage(limit, page, search).then((response) => {
 
         if (response.status === 406) {
@@ -23,14 +25,15 @@ export function Pokedex() {
         const promises = response.data.map((pokemon) => getPokemonInfo(pokemon.name))
         Promise.all(promises).then((pokemons) => {
           setPokedex((pokedex) => [...pokedex, ...pokemons])
+          isLoading.current = false
         })
 
-        if(response.data.length < 8) {
+        if(response.data.length < limit) {
           return setLimitReached(true)
         }
+
+        prevPageRef.current = page;
       })
-      
-      prevPageRef.current = page;
     }
   }
 
@@ -44,7 +47,7 @@ export function Pokedex() {
     const documentHeight = document.documentElement.scrollHeight;
     
     if (scrollPosition >= documentHeight - windowHeight - 50) {
-      if(!limitReached){
+      if(!limitReached && !isLoading.current){
         setPage((prevPage) => prevPage + 1);
       }
     }
@@ -67,7 +70,7 @@ export function Pokedex() {
       setPokedex([])
       setPage(1)
       setLimitReached(false)
-      prevPageRef.current = 1
+      prevPageRef.current = 0
 
       setTimeout(() => {
         if(searchValue === "") getPokemonsPageInfo()
