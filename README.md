@@ -1,58 +1,52 @@
-# Pokedex FullStack Test Filup
+# Pokedex FullStack Test
 
-## Candidato
-**Nombre:** Jesus Adrian Martinez Aispuro  
-**Teléfono:** 6531055636
+## Links
 
-## Enlaces
-
-- **Página:** https://test-pokedex-adrianmrtz.onrender.com/crud
+- **Page:** https://test-pokedex-adrianmrtz.onrender.com/crud
 - **API:** https://pokedex-test-api.onrender.com/
 
-*Nota: El servicio de la API puede estar algo lento debido a la capacidad del servidor gratuito en el que está hosteado, esto también se puede ver reflejado en la página.*
+*Note: The API service may be somewhat slow due to the capacity of the free server on which it is hosted; this can also be seen on the page.*
 
-## Funcionalidad
+## Functionality
 
-La página está dividida en dos secciones: CRUD y Pokédex, a las cuales se puede acceder a través de la barra de navegación.
+The page is divided into two sections: CRUD and Pokédex, which can be accessed through the navigation bar.
 
 ### CRUD
 
-- Opciones de Crear, Leer, Actualizar y Borrar pokémons de una base de datos en MongoDB llamada PokemonDB.
-- El modelo de Pokemon usado en este ejercicio tiene la siguiente estructura:
-   ```json
-   {
-       "_id": ObjectId("65a58e7b0471e06ebcc0f96d"),
-       "name": "Charizard",
-       "types": [ "fire", "flying" ],
-       "__v": 0
-   }
-   ```
-   
--Al agregar un Pokémon nuevo el usuario proporciona su nombre, tipo principal y tiene la opción de agregar un tipo secundario.
+- Options to Create, Read, Update, and Delete Pokémon from a MongoDB database called PokemonDB.
+- The Pokémon model used in this exercise has the following structure:
+```json
+{
+"_id": ObjectId("65a58e7b0471e06ebcc0f96d"),
+"name": "Charizard",
+"types": [ "fire", "flying" ],
+"__v": 0
+}
+```
+
+- When adding a new Pokémon, the user provides its name, primary type, and has the option to add a secondary type.
 
 ### Pokédex
-- Muestra todos los Pokémon provenientes de la pokeapi v2, ordenados alfabéticamente.
-- La paginación se realiza mediante scroll infinito (cargando páginas a medida que el usuario baja).
-- Búsqueda con el parámetro `search` en la API, la cual se realiza mediante un formulario y los resultados se paginan de la misma manera que sin búsqueda.
-- Si la búsqueda está vacía, se reinician los pokémons.
-- Cada tarjeta de Pokémon tiene un botón "PDF" que genera un PDF con la información básica del Pokémon.
+- Displays all Pokémon from the PokeAPI v2, sorted alphabetically.
+- Pagination is done using infinite scrolling (loading pages as the user scrolls).
+- Searching with the `search` parameter in the API is done through a form, and the results are paginated the same way as without searching.
+- If the search is empty, the Pokémon are reset.
+- Each Pokémon card has a "PDF" button that generates a PDF with the Pokémon's basic information.
 
-### Endpoints de la API
+### API Endpoints
 
 #### CRUD
-- Obtener todos los Pokémon guardados en la base de datos: `GET /getallpokemons`
-- Insertar un Pokémon nuevo: `POST /insertpokemon`
-- Obtener un Pokémon por ID: `GET /getpokemonbyid/:id`
-- Actualizar un Pokémon por ID: `PUT /updatepokemon/:id`
-- Borrar un Pokémon por ID: `DELETE /deletepokemon/:id`
+- Get all Pokémon stored in the database: `GET /getallpokemons`
+- Insert a new Pokémon: `POST /insertpokemon`
+- Get a Pokémon by ID: `GET /getpokemonbyid/:id`
+- Update a Pokémon by ID: `PUT /updatepokemon/:id`
+- Delete a Pokémon by ID: `DELETE /deletepokemon/:id`
 
-#### Pokédex
-- Obtener Pokémon de la pokeapi v2 (con paginación): `GET /pokedex/getpokemons`
-  - Sin parámetros devuelve todos los Pokémon ordenados alfabéticamente.
-  - Con parámetro `search` devuelve Pokémon cuyo nombre contiene las letras de `search`.
-  - Con parámetros `limit` y `page` devuelve la página `page` de tamaño `limit`.
-- Obtener información detallada de un Pokémon por nombre: `GET /pokedex/getpokemoninfo/:name`
+#### Pokedex
+- Get Pokémon from the PokeAPI v2 (with pagination): `GET /pokedex/getpokemons`
+- Without parameters, it returns all Pokémon sorted alphabetically.
+- With the `search` parameter, it returns Pokémon whose name contains the letters of `search`.
+- With the `limit` and `page` parameters, it returns a `page` of size `limit`.
+- Get detailed information about a Pokémon by name: `GET /pokedex/getpokemoninfo/:name`
 
 ---
-
-*¡Gracias por revisar mi prueba técnica!*
